@@ -1,4 +1,5 @@
-﻿using DotnetMongoDB.Models;
+﻿using DotnetMongoDB.Dtos;
+using DotnetMongoDB.Models;
 using MongoDB.Driver;
 
 namespace DotnetMongoDB.Services
@@ -12,30 +13,31 @@ namespace DotnetMongoDB.Services
             var database = mongoClient.GetDatabase(settings.DatabaseName);
             _students = database.GetCollection<Student>(settings.StudentsCollectionName);
         }
-        public Student Create(Student student)
+
+        public async Task<Student> Create(Student student)
         {
-            _students.InsertOne(student);
+            await _students.InsertOneAsync(student);
             return student;
         }
 
-        public List<Student> Get()
+        public async Task<Student> Get(string id)
         {
-            return _students.Find(student => true).ToList();
+            return await _students.Find<Student>(s => s.Id == id).FirstOrDefaultAsync();
         }
 
-        public Student Get(string id)
+        public async Task<List<Student>> GetAll()
         {
-            return _students.Find(student => student.Id == id).FirstOrDefault();
+            return await _students.Find(s => true).ToListAsync();
         }
 
-        public void Remove(string id)
+        public async Task Remove(string id)
         {
-            _students.DeleteOne(student => student.Id == id);
+            await _students.DeleteOneAsync(s => s.Id == id);
         }
 
-        public void Update(string id, Student student)
+        public async Task Update(string id, Student student)
         {
-            _students.ReplaceOne(student => student.Id == id, student);
+            await _students.ReplaceOneAsync(s => s.Id == id, student);
         }
     }
 }

@@ -1,7 +1,9 @@
+using DotnetMongoDB.Interfaces;
 using DotnetMongoDB.Models;
 using DotnetMongoDB.Services;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,8 @@ builder.Services.AddSingleton<IMongoClient>(s =>
         new MongoClient(builder.Configuration.GetValue<string>("SchoolDatabaseSettings:ConnectionString")));
 
 builder.Services.AddScoped<IStudentService, StudentService>();
-builder.Services.AddControllers();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

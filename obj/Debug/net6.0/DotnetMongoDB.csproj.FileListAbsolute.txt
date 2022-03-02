@@ -41,3 +41,7 @@ C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\obj\Debug\net6.0\DotnetMongo
 C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\obj\Debug\net6.0\ref\DotnetMongoDB.dll
 C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\obj\Debug\net6.0\DotnetMongoDB.pdb
 C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\obj\Debug\net6.0\DotnetMongoDB.genruntimeconfig.cache
+C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\adedamola.ajayi\source\repos\DotnetMongoDB\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
